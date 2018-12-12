@@ -1,0 +1,54 @@
+# Paths of directory or file which need to be updated
+source_include: [
+  /path/to/your/source/code
+]
+
+# Files or directories need to be excluded from `source_include`
+source_exclude: [
+  .git, .idea, .vscode, target, build, out, tmp, dist, __pycache__,
+  model-exchange/visualization/assets, bootstrap-table.min.js,
+]
+
+# Define file suffix and copyright type
+type:
+- {file_suffix: .yaml,          copyright_start_line: '',     prefix: '# ',     copyright_end_line: ''}
+- {file_suffix: .yml,           copyright_start_line: '',     prefix: '# ',     copyright_end_line: ''}
+- {file_suffix: .properties,    copyright_start_line: '',     prefix: '# ',     copyright_end_line: ''}
+- {file_suffix: dockerfile,     copyright_start_line: '',     prefix: '# ',     copyright_end_line: ''}
+- {file_suffix: Dockerfile,     copyright_start_line: '',     prefix: '# ',     copyright_end_line: ''}
+- {file_suffix: .dockerignore,  copyright_start_line: '',     prefix: '# ',     copyright_end_line: ''}
+- {file_suffix: .bat,           copyright_start_line: '',     prefix: '@rem ',  copyright_end_line: ''}
+- {file_suffix: .sh,            copyright_start_line: '',     prefix: '# ',     copyright_end_line: ''}
+- {file_suffix: .py,            copyright_start_line: '',     prefix: '# ',     copyright_end_line: ''}
+- {file_suffix: .java,          copyright_start_line: '',     prefix: '// ',    copyright_end_line: ''}
+- {file_suffix: .pom,           copyright_start_line: '<!--', prefix: '  ',     copyright_end_line: '-->'}
+- {file_suffix: .js,            copyright_start_line: '',     prefix: '// ',    copyright_end_line: ''}
+- {file_suffix: .proto,         copyright_start_line: '',     prefix: '// ',    copyright_end_line: ''}
+- {file_suffix: .xml,           copyright_start_line: '<!--', prefix: '  ',     copyright_end_line: '-->'}
+- {file_suffix: .conf.template, copyright_start_line: '',     prefix: '# ',     copyright_end_line: ''}
+- {file_suffix: .go,         copyright_start_line: '',     prefix: '// ',    copyright_end_line: ''}
+
+# Whether update template files which are suffixed with ${file_suffix}.template
+update_template_file: true
+
+# Other specific file type. This configuration will ignore `source_exclude` above
+specific_include:
+# If `path` is a directory, update all files under this dir and its sub-dir and so on using the same comment style
+- {path: '/path/to/file/app.js',
+   copyright_start_line: '/*', prefix: ' * ', copyright_end_line: ' */'}
+- {path: '/path/to/directory/Dockerfiles',
+   copyright_start_line: '', prefix: '# ', copyright_end_line: ''}
+
+
+# previous copyright first line. Don't append #, *, etc.
+old_copyright_heads:
+- 'Copyright (c) Microsoft Corporation'
+- 'All rights reserved.'
+- 'MIT License'
+- 'YPC copyright'
+
+# new copyright
+new_copyright: |
+  YPC copyright
+  Just kidding
+  period.
